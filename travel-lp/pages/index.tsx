@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
 import { Autoplay } from "swiper/modules";
 import MainContent from "../components/main-content";
 import Rating from "../components/rating";
@@ -23,7 +24,7 @@ const Homepage: NextPage = () => {
         <Swiper
           spaceBetween={50}
           onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          onSwiper={(swiper: SwiperType) => console.log(swiper)}
           modules={[Autoplay]}
           autoplay={{
             delay: 3000,
