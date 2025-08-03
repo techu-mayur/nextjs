@@ -1,0 +1,108 @@
+.emptyPlaceholder {
+  position: relative;
+  line-height: 120%;
+  display: inline-block;
+  min-width: 84px;
+}
+
+.holidayPackage {
+  position: relative;
+  font-size: var(--font-size-lg);
+  line-height: 29px;
+  font-family: var(--font-inter);
+  color: var(--black);
+}
+
+.firstHighlightPair {
+  flex: 1;
+  border-radius: var(--br-13xl);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-500);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-11xl) var(--padding-11xl) var(--padding-11xl) var(--padding-13xl);
+  gap: var(--gap-base);
+  min-width: 155px;
+}
+
+.emptyPlaceholderTwo,
+.luxuryHotel {
+  position: relative;
+  line-height: 120%;
+  display: inline-block;
+  min-width: 58px;
+}
+
+.luxuryHotel {
+  font-size: var(--font-size-lg);
+  line-height: 29px;
+  font-family: var(--font-inter);
+  color: var(--black);
+  min-width: 109px;
+}
+
+.highlightPairs,
+.secondHighlightPair {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.secondHighlightPair {
+  flex: 0.7684;
+  border-radius: var(--br-13xl);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-500);
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--padding-11xl) var(--padding-28xl) var(--padding-11xl) var(--padding-29xl);
+  gap: var(--gap-base);
+  min-width: 155px;
+}
+
+.highlightPairs {
+  align-self: stretch;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--gap-13xl);
+  text-align: left;
+  font-size: var(--font-size-16xl);
+  color: var(--color-orangered-100);
+  font-family: var(--font-circular-std);
+}
+
+@media screen and (max-width: 800px) {
+
+  .emptyPlaceholder,
+  .emptyPlaceholderTwo {
+    font-size: var(--font-size-9xl);
+    line-height: 34px;
+  }
+
+  .luxuryHotel,
+  .firstHighlightPair {
+    text-align: center;
+    min-width: 50%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+
+  .emptyPlaceholder,
+  .emptyPlaceholderTwo {
+    font-size: var(--font-size-2xl);
+    line-height: 25px;
+  }
+
+  .secondHighlightPair {
+    flex: 1;
+  }
+
+  .highlightPairs {
+    flex-wrap: wrap;
+    gap: var(--gap-base);
+  }
+}

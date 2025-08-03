@@ -1,0 +1,251 @@
+.travelPointContentChild {
+  height: 696.7px;
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  min-width: 513px;
+}
+
+.travelPoint,
+.weHelpingYou {
+  align-self: stretch;
+  position: relative;
+}
+
+.travelPoint {
+  letter-spacing: 0.2em;
+  line-height: 28px;
+  text-transform: uppercase;
+}
+
+.weHelpingYou {
+  margin: 0;
+  font-size: var(--font-size-25xl);
+  line-height: 120%;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--black);
+}
+
+.pointHeading {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+}
+
+.contraryToPopular {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-lg);
+  line-height: 160%;
+  font-family: var(--font-inter);
+  color: var(--color-gray-300);
+}
+
+.pointMessage {
+  align-self: stretch;
+  gap: var(--gap-13xl);
+}
+
+.packageHighlights,
+.pointDescription,
+.pointMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.packageHighlights {
+  align-self: stretch;
+  gap: var(--gap-13xl);
+  font-size: var(--font-size-16xl);
+  color: var(--color-orangered-100);
+}
+
+.pointDescription {
+  width: 445px;
+  gap: var(--gap-45xl);
+  min-width: 535px;
+  max-width: 100%;
+}
+
+.discount1Icon {
+  height: 40px;
+  width: 40px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.discountedPrice {
+  align-self: stretch;
+  position: relative;
+  line-height: 28px;
+}
+
+.discountIcon,
+.discountedPriceContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.discountedPriceContainer {
+  flex: 1;
+  flex-direction: column;
+  padding: var(--padding-7xs) 0 0;
+}
+
+.discountIcon {
+  width: 302px;
+  margin: 0 !important;
+  position: absolute;
+  top: 131px;
+  left: 416px;
+  box-shadow: 0 385px 108px transparent, 0 246px 99px transparent,
+    0 139px 83px rgba(0, 0, 0, 0.01), 0 62px 62px rgba(0, 0, 0, 0.02),
+    0 15px 34px rgba(0, 0, 0, 0.03), 0 0 0 rgba(0, 0, 0, 0.03);
+  border-radius: var(--br-81xl);
+  background-color: var(--color-white);
+  flex-direction: row;
+  padding: var(--padding-base) var(--padding-13xl);
+  box-sizing: border-box;
+  gap: var(--gap-base);
+  z-index: 1;
+  color: var(--black);
+}
+
+.ticketStar1Icon {
+  height: 48px;
+  width: 48px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ticketIcon {
+  height: 112px;
+  width: 112px;
+  margin: 0 !important;
+  position: absolute;
+  right: -81.3px;
+  bottom: 291.7px;
+  box-shadow: 0 385px 108px transparent, 0 246px 99px transparent,
+    0 139px 83px rgba(0, 0, 0, 0.01), 0 62px 62px rgba(0, 0, 0, 0.02),
+    0 15px 34px rgba(0, 0, 0, 0.03), 0 0 0 rgba(0, 0, 0, 0.03);
+  border-radius: var(--br-81xl);
+  background-color: var(--color-goldenrod-100);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-13xl);
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.travelPointContent,
+.travelPointContentWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+
+.travelPointContent {
+  width: 1276.7px;
+  align-items: center;
+  position: relative;
+  gap: var(--gap-23xl);
+  flex-shrink: 0;
+}
+
+.travelPointContentWrapper {
+  width: 1378px;
+  align-items: flex-start;
+  padding: 0 var(--padding-xl) var(--padding-45xl-3) 0;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-4xl);
+  color: var(--color-hotpink);
+  font-family: var(--font-circular-std);
+}
+
+@media screen and (max-width: 1125px) {
+  .pointDescription {
+    flex: 1;
+  }
+
+  .travelPointContent {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .travelPointContentChild {
+    min-width: 100%;
+  }
+
+  .weHelpingYou {
+    font-size: var(--font-size-16xl);
+    line-height: 42px;
+  }
+
+  .pointDescription {
+    min-width: 100%;
+  }
+
+  .travelPointContent {
+    gap: var(--gap-2xl);
+  }
+
+  .travelPointContentWrapper {
+    padding-bottom: var(--padding-23xl);
+    box-sizing: border-box;
+  }
+
+  .travelPointContentChild {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .travelPoint {
+    font-size: var(--font-size-lg);
+    line-height: 22px;
+  }
+
+  .weHelpingYou {
+    font-size: var(--font-size-7xl);
+    line-height: 32px;
+  }
+
+  .packageHighlights,
+  .pointMessage {
+    gap: var(--gap-base);
+  }
+
+  .pointDescription {
+    gap: var(--gap-13xl);
+  }
+
+  .discountedPrice {
+    font-size: var(--font-size-lg);
+    line-height: 22px;
+  }
+
+  .travelPointContentWrapper {
+    padding-bottom: var(--padding-8xl);
+    box-sizing: border-box;
+  }
+
+  .packageHighlights,
+  .pointMessage {
+    padding-inline: 20px;
+  }
+}

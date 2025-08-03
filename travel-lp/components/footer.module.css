@@ -1,0 +1,319 @@
+.logoIcon {
+  height: 40px;
+  width: 40px;
+  position: relative;
+  min-height: 40px;
+}
+
+.travlog {
+  position: relative;
+  line-height: 40px;
+  font-weight: 900;
+  display: inline-block;
+  min-width: 86px;
+}
+
+.brandInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+}
+
+.contraryToPopular,
+.inAPiece {
+  margin: 0;
+}
+
+.contraryToPopularContainer {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-4xl);
+  line-height: 160%;
+  color: var(--color-gray-300);
+}
+
+.footerContent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-13xl);
+}
+
+.groupIcon,
+.groupIcon1,
+.socialLinksChild {
+  height: 32px;
+  width: 32px;
+  position: relative;
+  min-height: 32px;
+}
+
+.footerContainer,
+.socialLinks {
+  width: 160px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+
+.footerContainer {
+  width: 278px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-45xl);
+  min-width: 278px;
+}
+
+.about,
+.career,
+.company,
+.mobile {
+  position: relative;
+  display: inline-block;
+}
+
+.company {
+  font-size: var(--font-size-4xl);
+  line-height: 28px;
+  font-family: var(--font-circular-std);
+  color: var(--black);
+  min-width: 104px;
+}
+
+.about,
+.career,
+.mobile {
+  line-height: 29px;
+  min-width: 52px;
+}
+
+.career,
+.mobile {
+  min-width: 58px;
+}
+
+.mobile {
+  min-width: 57px;
+}
+
+.companyInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-13xl);
+}
+
+.contact {
+  position: relative;
+  font-size: var(--font-size-4xl);
+  line-height: 28px;
+  display: inline-block;
+  font-family: var(--font-circular-std);
+  color: var(--black);
+  min-width: 87px;
+}
+
+.whyTravlog {
+  display: inline-block;
+  min-width: 115px;
+}
+
+.blog,
+.faqs,
+.partnerWithUs,
+.whyTravlog {
+  position: relative;
+  line-height: 29px;
+}
+
+.blog,
+.faqs {
+  display: inline-block;
+  min-width: 46px;
+}
+
+.blog {
+  min-width: 38px;
+}
+
+.supportInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-13xl);
+}
+
+.meetUs {
+  position: relative;
+  font-size: var(--font-size-4xl);
+  line-height: 28px;
+  display: inline-block;
+  font-family: var(--font-circular-std);
+  color: var(--black);
+  min-width: 89px;
+}
+
+.contactDetails,
+.infotravlogcom {
+  white-space: nowrap;
+}
+
+.bd23200,
+.contactDetails,
+.infotravlogcom,
+.rStreetNew {
+  position: relative;
+  line-height: 29px;
+}
+
+.bd23200 {
+  display: inline-block;
+  min-width: 81px;
+}
+
+.address,
+.contactInfo,
+.footerNavigation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+}
+
+.contactInfo,
+.footerNavigation {
+  gap: var(--gap-13xl);
+}
+
+.footerNavigation {
+  width: 679px;
+  flex-direction: row;
+  gap: var(--gap-102xl);
+  min-width: 679px;
+  max-width: 100%;
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-400);
+  font-family: var(--font-inter);
+}
+
+.objectsIcon {
+  height: 351.9px;
+  width: 332px;
+  position: absolute;
+  margin: 0 !important;
+  top: -302.5px;
+  right: -218px;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.footer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 var(--padding-146xl);
+  box-sizing: border-box;
+  position: relative;
+  max-width: 100%;
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--black);
+  font-family: var(--font-circular-std);
+}
+
+@media screen and (max-width: 1350px) {
+
+  .footerContainer,
+  .footerNavigation {
+    flex: 1;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1125px) {
+  .footerNavigation {
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .footerNavigation {
+    flex-wrap: wrap;
+    gap: var(--gap-41xl);
+  }
+
+  .footer {
+    padding-left: var(--padding-63xl);
+    padding-right: var(--padding-63xl);
+    box-sizing: border-box;
+  }
+
+  .footerNavigation {
+    width: 100%;
+    gap: 0 90px !important;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .travlog {
+    font-size: var(--font-size-lgi);
+    line-height: 32px;
+  }
+
+  .contraryToPopularContainer {
+    font-size: var(--font-size-lg);
+    line-height: 29px;
+  }
+
+  .footerContent {
+    gap: var(--gap-base);
+  }
+
+  .footerContainer {
+    gap: var(--gap-13xl);
+  }
+
+  .company,
+  .contact,
+  .meetUs {
+    font-size: var(--font-size-lg);
+    line-height: 22px;
+  }
+
+  .footerNavigation {
+    gap: var(--gap-11xl);
+  }
+
+  .footer {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+
+  .companyInfo,
+  .supportInfo {
+    gap: 15px;
+  }
+
+  .meetUs {
+    padding-top: 10px;
+    gap: 20px;
+  }
+}

@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Circular+Std:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-inter: Inter;
+  --font-circular-std: "Circular Std";
+  /* font sizes */
+  --font-size-lg: 18px;
+  --font-size-4xl: 23px;
+  --font-size-5xl: 24px;
+  --font-size-lgi: 19px;
+  --font-size-36xl: 55px;
+  --font-size-14xl: 33px;
+  --font-size-25xl: 44px;
+  --font-size-9xl: 28px;
+  --font-size-7xl: 26px;
+  --font-size-16xl: 35px;
+  --font-size-2xl: 21px;
+  --font-size-3xl: 22px;
+  --font-size-sm: 14px;
+  --font-size-50xl: 69px;
+  --font-size-22xl: 41px;
+  /* Colors */
+  --color-white: #fff;
+  --color-slateblue: #5d50c6;
+  --color-gray-100: #222831;
+  --black: #191825;
+  --color-gray-200: rgba(25, 24, 37, 0.05);
+  --color-gray-300: rgba(25, 24, 37, 0.5);
+  --color-gray-400: rgba(25, 24, 37, 0.75);
+  --color-gray-500: rgba(25, 24, 37, 0.1);
+  --color-goldenrod-100: #facd49;
+  --color-goldenrod-200: rgba(250, 205, 73, 0.08);
+  --color-hotpink: #f85e9f;
+  --color-orangered-100: #ff5722;
+  --color-darkslategray: #393e46;
+  --color-whitesmoke: #eee;
+  --color-black: #000;
+  /* Gaps */
+  --gap-45xl: 64px;
+  --gap-base: 16px;
+  --gap-13xl: 32px;
+  --gap-xl: 20px;
+  --gap-102xl: 121px;
+  --gap-11xl: 30px;
+  --gap-41xl: 60px;
+  --gap-5xs: 8px;
+  --gap-109xl: 128px;
+  --gap-5xl: 24px;
+  --gap-77xl: 96px;
+  --gap-29xl: 48px;
+  --gap-53xl: 72px;
+  --gap-lg: 18px;
+  --gap-17xl: 36px;
+  --gap-98xl: 117px;
+  --gap-39xl: 58px;
+  --gap-23xl: 42px;
+  --gap-2xl: 21px;
+  --gap-12xl: 31px;
+  --gap-mini: 15px;
+  --gap-92xl: 111px;
+  --gap-9xl: 28px;
+  --gap-36xl: 55px;
+  --gap-37xl: 56px;
+  --gap-24xl: 43px;
+  /* Paddings */
+  --padding-146xl: 165px;
+  --padding-xl: 20px;
+  --padding-63xl: 82px;
+  --padding-45xl: 64px;
+  --padding-8xl: 27px;
+  --padding-23xl: 42px;
+  --padding-109xl: 128px;
+  --padding-64xl: 83px;
+  --padding-13xl: 32px;
+  --padding-15xl: 34px;
+  --padding-470xl: 489px;
+  --padding-225xl: 244px;
+  --padding-173xl: 192px;
+  --padding-10xl: 29px;
+  --padding-62xl: 81px;
+  --padding-106xl: 125px;
+  --padding-sm: 14px;
+  --padding-12xs: 1px;
+  --padding-base: 16px;
+  --padding-7xs: 6px;
+  --padding-mid-5: 17.5px;
+  --padding-7xl: 26px;
+  --padding-11xl: 30px;
+  --padding-5xl: 24px;
+  --padding-9xl: 28px;
+  --padding-45xl-3: 64.3px;
+  --padding-12xl: 31px;
+  --padding-28xl: 47px;
+  --padding-29xl: 48px;
+  --padding-3xl: 22px;
+  --padding-19xl: 38px;
+  --padding-11xs-5: 1.5px;
+  --padding-147xl: 166px;
+  --padding-22xl: 41px;
+  --padding-79xl: 98px;
+  --padding-76xl: 95px;
+  --padding-4xl: 23px;
+  --padding-9xs-5: 3.5px;
+  --padding-142xl: 161px;
+  --padding-5xs-5: 7.5px;
+  --padding-56xl: 75px;
+  /* Border radiuses */
+  --br-81xl: 100px;
+  --br-481xl: 500px;
+  --br-13xl: 32px;
+}
+
+#testimonial .slider-active-mobile,
+#testimonial .swiper-slide-active .slider-active,
+#testimonial .slider-active:hover {
+  background-color: var(--color-slateblue);
+  color: #fff;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+#testimonial .slider-active-mobile div,
+#testimonial .swiper-slide-active .slider-active div,
+#testimonial .slider-active:hover div {
+  color: #fff;
+}

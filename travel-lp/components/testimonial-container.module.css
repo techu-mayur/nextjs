@@ -1,0 +1,345 @@
+.travelEnthusiast {
+  font-size: var(--font-size-4xl);
+  color: var(--color-gray-400);
+}
+
+.markSmithContainer {
+  align-self: stretch;
+  position: relative;
+  line-height: 34px;
+  z-index: 2;
+}
+
+.contraryToPopular,
+.inAPiece {
+  margin: 0;
+}
+
+.contraryToPopularContainer {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-4xl);
+  line-height: 160%;
+  color: var(--color-gray-400);
+  z-index: 1;
+}
+
+.testimonialQuote {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-77xl);
+}
+
+.ratingStars1,
+.stars,
+.stars1 {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--color-gray-200);
+}
+
+.ratingStars1,
+.stars1 {
+  background-color: var(--color-hotpink);
+}
+
+.stars1 {
+  background-color: var(--color-gray-200);
+}
+
+.destinationShowcase,
+.ratingStars {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.ratingStars {
+  justify-content: flex-start;
+  gap: var(--gap-5xl);
+  z-index: 1;
+}
+
+.destinationShowcase {
+  align-self: stretch;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+}
+
+.testimonialDetails,
+.testimonialDetailsWrapper {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+
+.testimonialDetails {
+  width: 920px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-45xl);
+}
+
+.testimonialDetailsWrapper {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+}
+
+.prepareYourself,
+.subscribeToOur {
+  align-self: stretch;
+  position: relative;
+}
+
+.subscribeToOur {
+  letter-spacing: 0.2em;
+  line-height: 28px;
+  text-transform: uppercase;
+}
+
+.prepareYourself {
+  margin: 0;
+  font-size: var(--font-size-36xl);
+  line-height: 120%;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--black);
+}
+
+.newsletterContainer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-13xl);
+}
+
+.message1Icon {
+  height: 32px;
+  width: 32px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.yourEmail {
+  flex: 1;
+  position: relative;
+  line-height: 28px;
+  display: inline-block;
+  min-width: 74px;
+}
+
+.formFields {
+  flex: 1;
+  border-radius: var(--br-13xl);
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-13xl) var(--padding-470xl) var(--padding-13xl) var(--padding-13xl);
+  box-sizing: border-box;
+  gap: var(--gap-base);
+  max-width: 100%;
+}
+
+.subscribe {
+  width: 107px;
+  position: relative;
+  line-height: 28px;
+  display: inline-block;
+  min-width: 107px;
+}
+
+.submitButton {
+  border-radius: var(--br-13xl);
+  background-color: var(--color-slateblue);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-15xl) var(--padding-45xl);
+  color: var(--color-white);
+}
+
+.newsletterContainerParent,
+.subscriptionForm {
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--gap-45xl);
+  max-width: 100%;
+}
+
+.subscriptionForm {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  color: var(--color-gray-400);
+}
+
+.newsletterContainerParent {
+  border-radius: var(--br-13xl);
+  background-color: var(--color-goldenrod-200);
+  flex-direction: column;
+  align-items: center;
+  padding: var(--padding-109xl) var(--padding-45xl);
+  box-sizing: border-box;
+  z-index: 1;
+  font-size: var(--font-size-4xl);
+  color: var(--color-hotpink);
+}
+
+.featuresContainer,
+.testimonialContainer {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+
+.featuresContainer {
+  width: 1110px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-109xl);
+}
+
+.testimonialContainer {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl) var(--padding-45xl);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--font-size-9xl);
+  color: var(--color-orangered-100);
+  font-family: var(--font-circular-std);
+}
+
+@media screen and (max-width: 1125px) {
+  .testimonialQuote {
+    gap: var(--gap-29xl);
+  }
+
+  .subscriptionForm,
+  .testimonialDetails {
+    gap: var(--gap-13xl);
+  }
+
+  .newsletterContainerParent {
+    gap: var(--gap-13xl);
+    padding-left: var(--padding-13xl);
+    padding-right: var(--padding-13xl);
+    box-sizing: border-box;
+  }
+
+  .featuresContainer {
+    gap: var(--gap-45xl);
+  }
+
+  .testimonialContainer {
+    padding-bottom: var(--padding-23xl);
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .prepareYourself {
+    font-size: var(--font-size-25xl);
+    line-height: 53px;
+  }
+
+  .newsletterContainer {
+    gap: var(--gap-base);
+  }
+
+  .formFields {
+    flex-wrap: wrap;
+    padding-right: var(--padding-225xl);
+    box-sizing: border-box;
+  }
+
+  .subscriptionForm {
+    gap: var(--gap-base);
+  }
+
+  .newsletterContainerParent {
+    gap: var(--gap-base);
+    padding-top: var(--padding-64xl);
+    padding-bottom: var(--padding-64xl);
+    box-sizing: border-box;
+  }
+
+  .featuresContainer {
+    gap: var(--gap-13xl);
+  }
+
+  .testimonialContainer {
+    padding-bottom: var(--padding-8xl);
+    box-sizing: border-box;
+  }
+
+  .testimonialDetailsWrapper {
+    padding-top: 80px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+
+  .contraryToPopularContainer,
+  .markSmithContainer {
+    font-size: var(--font-size-lg);
+    line-height: 27px;
+  }
+
+  .contraryToPopularContainer {
+    line-height: 29px;
+  }
+
+  .testimonialQuote {
+    gap: var(--gap-5xl);
+  }
+
+  .testimonialDetails {
+    gap: var(--gap-base);
+  }
+
+  .subscribeToOur {
+    font-size: var(--font-size-lg);
+    line-height: 22px;
+  }
+
+  .prepareYourself {
+    font-size: var(--font-size-14xl);
+    line-height: 40px;
+  }
+
+  .yourEmail {
+    font-size: var(--font-size-lg);
+    line-height: 22px;
+  }
+
+  .formFields {
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+
+  .subscribe {
+    font-size: var(--font-size-lg);
+    line-height: 22px;
+  }
+
+  .featuresContainer {
+    gap: var(--gap-base);
+  }
+}

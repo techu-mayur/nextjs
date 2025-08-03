@@ -1,0 +1,137 @@
+.testimonialContent {
+  margin: auto;
+}
+
+.services {
+  position: relative;
+  letter-spacing: 0.2em;
+  line-height: 28px;
+  text-transform: uppercase;
+}
+
+.ourTopValue {
+  margin: 0;
+  align-self: stretch;
+  position: relative;
+  font-size: var(--font-size-25xl);
+  line-height: 120%;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--black);
+}
+
+.serviceCategories,
+.serviceHeading {
+  align-items: flex-start;
+  max-width: 100%;
+}
+
+.serviceHeading {
+  width: 444px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-xl) 0;
+  box-sizing: border-box;
+  gap: var(--gap-base);
+  min-width: 444px;
+}
+
+.serviceCategories {
+  /* width: 830px;
+  overflow-x: auto; */
+  /* flex-shrink: 0;
+  gap: var(--gap-2xl);
+  min-width: 830px; */
+  text-align: center;
+  font-size: var(--font-size-9xl);
+  color: var(--black);
+}
+
+.serviceContent,
+.testimonialContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.serviceContent {
+  /* width: 1536px; */
+  align-items: center;
+  /* max-width: 121%; */
+  flex-shrink: 0;
+  row-gap: 20px;
+  z-index: 1;
+  padding-inline-start: 130px;
+}
+
+.testimonialContent {
+  align-self: stretch;
+  align-items: flex-start;
+  /* padding: 0 0 0 var(--padding-147xl); */
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-4xl);
+  color: var(--color-hotpink);
+  font-family: var(--font-circular-std);
+}
+
+@media screen and (max-width: 1350px) {
+
+  .serviceCategories,
+  .serviceHeading {
+    flex: 1;
+  }
+
+  .serviceContent {
+    flex-wrap: wrap;
+  }
+
+  .testimonialContent {
+    padding-left: var(--padding-64xl);
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 1125px) {
+  .serviceCategories {
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .ourTopValue {
+    font-size: var(--font-size-16xl);
+    line-height: 42px;
+  }
+
+  .serviceHeading {
+    min-width: 100%;
+  }
+
+  .testimonialContent {
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .serviceContent {
+    padding-left: 0;
+  }
+
+  .testimonialDetailsWrapper {
+    padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .services {
+    font-size: var(--font-size-lg);
+    line-height: 22px;
+  }
+
+  .ourTopValue {
+    font-size: var(--font-size-7xl);
+    line-height: 32px;
+  }
+}

@@ -1,0 +1,297 @@
+.keyFeatures,
+.weOfferBest {
+  align-self: stretch;
+  position: relative;
+}
+.keyFeatures {
+  letter-spacing: 0.2em;
+  line-height: 28px;
+  text-transform: uppercase;
+}
+.weOfferBest {
+  margin: 0;
+  font-size: var(--font-size-25xl);
+  line-height: 53px;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--black);
+}
+.testimonialsContainer {
+  width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+  max-width: 100%;
+}
+.contraryToPopular,
+.from45Bc {
+  margin: 0;
+}
+.contraryToPopularContainer {
+  align-self: stretch;
+  position: relative;
+  line-height: 160%;
+}
+.featuresListContainer,
+.keyFeaturesDescriptionConta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.featuresListContainer {
+  align-self: stretch;
+  z-index: 1;
+  font-size: var(--font-size-4xl);
+  color: var(--black);
+  font-family: var(--font-circular-std);
+}
+.keyFeaturesDescriptionConta {
+  width: 540px;
+  gap: var(--gap-45xl);
+  min-width: 540px;
+}
+.map111Icon {
+  height: 40px;
+  width: 40px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.paradiseOnEarth {
+  position: relative;
+  line-height: 28px;
+}
+.mapTitleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-7xs) 0 0;
+}
+.map111Parent,
+.mapContentInner {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.map111Parent {
+  box-shadow: 0 385px 108px transparent, 0 246px 99px transparent,
+    0 139px 83px rgba(0, 0, 0, 0.01), 0 62px 62px rgba(0, 0, 0, 0.02),
+    0 15px 34px rgba(0, 0, 0, 0.03), 0 0 0 rgba(0, 0, 0, 0.03);
+  border-radius: var(--br-81xl);
+  background-color: var(--color-white);
+  justify-content: flex-start;
+  padding: var(--padding-base) var(--padding-13xl);
+  gap: var(--gap-base);
+  z-index: 2;
+}
+.mapContentInner {
+  justify-content: flex-end;
+  padding: 0 var(--padding-12xs);
+}
+.destinationImageIcon {
+  align-self: stretch;
+  flex: 1;
+  overflow: hidden;
+  z-index: 2;
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.137);
+}
+.wrapperDestinationImage {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-481xl);
+  max-width: 100%;
+  max-height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mapContent,
+.testimonialAvatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.mapContent {
+  align-self: stretch;
+  flex: 1;
+  align-items: flex-end;
+  gap: var(--gap-98xl);
+}
+.testimonialAvatar {
+  height: 699px;
+  width: 351px;
+  align-items: flex-start;
+  padding: var(--padding-sm) 0 0;
+  box-sizing: border-box;
+  min-width: 351px;
+  max-width: 100%;
+  font-size: var(--font-size-4xl);
+  color: var(--black);
+  font-family: var(--font-circular-std);
+}
+.keyFeaturesDescription,
+.testimonialContainer {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.keyFeaturesDescription {
+  flex-direction: row;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-300);
+  font-family: var(--font-inter);
+}
+.testimonialContainer {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-13xl);
+}
+.testimonials,
+.trustOurClients {
+  align-self: stretch;
+  position: relative;
+  z-index: 1;
+}
+.testimonials {
+  letter-spacing: 0.2em;
+  line-height: 28px;
+  text-transform: uppercase;
+}
+.trustOurClients {
+  margin: 0;
+  font-size: var(--font-size-25xl);
+  line-height: 53px;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--black);
+}
+.featuresContent {
+  width: 920px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+  max-width: 100%;
+}
+.showcaseContent {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-10xl) 0 var(--padding-xl);
+  box-sizing: border-box;
+  text-align: center;
+}
+.destinationShowcase,
+.destinationShowcaseWrapper,
+.showcaseContent {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.destinationShowcase {
+  width: 1119px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-53xl);
+}
+.destinationShowcaseWrapper {
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl) var(--padding-173xl) var(--padding-10xl);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-4xl);
+  color: var(--color-hotpink);
+  font-family: var(--font-circular-std);
+}
+@media screen and (max-width: 1350px) {
+  .destinationShowcaseWrapper {
+    padding-bottom: var(--padding-106xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 1125px) {
+  .keyFeaturesDescriptionConta,
+  .testimonialAvatar {
+    flex: 1;
+  }
+  .keyFeaturesDescription {
+    flex-wrap: wrap;
+  }
+  .destinationShowcase {
+    gap: var(--gap-17xl);
+  }
+}
+@media screen and (max-width: 800px) {
+  .weOfferBest {
+    font-size: var(--font-size-16xl);
+    line-height: 42px;
+  }
+  .keyFeaturesDescriptionConta {
+    gap: var(--gap-13xl);
+    min-width: 100%;
+  }
+  .testimonialContainer {
+    gap: var(--gap-base);
+  }
+  .trustOurClients {
+    font-size: var(--font-size-16xl);
+    line-height: 42px;
+  }
+  .destinationShowcase {
+    gap: var(--gap-lg);
+  }
+  .destinationShowcaseWrapper {
+    padding-bottom: var(--padding-62xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .keyFeatures {
+    font-size: var(--font-size-lg);
+    line-height: 22px;
+  }
+  .weOfferBest {
+    font-size: var(--font-size-7xl);
+    line-height: 32px;
+  }
+  .keyFeaturesDescriptionConta {
+    gap: var(--gap-base);
+  }
+  .paradiseOnEarth {
+    font-size: var(--font-size-lg);
+    line-height: 22px;
+  }
+  .mapContent {
+    gap: var(--gap-39xl);
+  }
+  .testimonialAvatar {
+    min-width: 100%;
+  }
+  .testimonials {
+    font-size: var(--font-size-lg);
+    line-height: 22px;
+  }
+  .trustOurClients {
+    font-size: var(--font-size-7xl);
+    line-height: 32px;
+  }
+}
