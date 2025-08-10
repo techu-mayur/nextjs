@@ -19,26 +19,29 @@ export async function POST(request: NextRequest) {
     // Try to capture the best possible IP
     const ipAddress = getClientIp(request);
 
-    if (!sessionToken) {
-      return NextResponse.json(
-        { error: 'Session token required' },
-        { status: 401 }
-      );
-    }
-
     // For Vercel deployment, be more lenient with session validation
     const isVercel = process.env.VERCEL === '1';
     let user = null;
     
     if (isVercel) {
       // On Vercel, try to get user but don't fail if not found
-      try {
-        user = await dbManager.getUserBySession(sessionToken);
-      } catch (error) {
-        console.log('Session not found in Vercel in-memory database, proceeding with anonymous feedback');
+      if (sessionToken) {
+        try {
+          user = await dbManager.getUserBySession(sessionToken);
+        } catch (error) {
+          console.log('Session not found in Vercel in-memory database, proceeding with anonymous feedback');
+        }
+      } else {
+        console.log('No session token provided on Vercel, proceeding with anonymous feedback');
       }
     } else {
       // On local development, require valid session
+      if (!sessionToken) {
+        return NextResponse.json(
+          { error: 'Session token required' },
+          { status: 401 }
+        );
+      }
       user = await dbManager.getUserBySession(sessionToken);
       if (!user) {
         return NextResponse.json(
