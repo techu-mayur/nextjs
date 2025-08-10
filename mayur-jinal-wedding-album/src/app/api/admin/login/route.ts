@@ -17,10 +17,26 @@ async function ensureDbInitialized() {
 export async function POST(request: NextRequest) {
   try {
     console.log('Admin login request received');
-    await ensureDbInitialized();
+    
+    // Parse request body with better error handling
+    let requestBody;
+    try {
+      requestBody = await request.json();
+      console.log('Request body parsed successfully');
+    } catch (parseError) {
+      console.log('Failed to parse request body:', parseError);
+      return NextResponse.json(
+        { error: 'Invalid JSON in request body' },
+        { status: 400 }
+      );
+    }
 
-    const { username, password, captchaToken } = await request.json();
-    console.log('Request data:', { username, password: password ? '[REDACTED]' : 'MISSING', captchaToken: captchaToken ? 'PRESENT' : 'MISSING' });
+    const { username, password, captchaToken } = requestBody;
+    console.log('Request data:', { 
+      username: username || 'MISSING', 
+      password: password ? '[REDACTED]' : 'MISSING', 
+      captchaToken: captchaToken ? 'PRESENT' : 'MISSING' 
+    });
     
     const ipAddress = getClientIp(request);
     const userAgent = request.headers.get('user-agent') || 'unknown';
@@ -32,6 +48,10 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    console.log('Initializing database...');
+    await ensureDbInitialized();
+    console.log('Database initialized successfully');
 
     // For Vercel deployment, skip CAPTCHA verification entirely
     const isVercel = process.env.VERCEL === '1';
