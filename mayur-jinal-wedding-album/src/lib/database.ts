@@ -7,6 +7,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production';
 
+// Check if we're in Vercel environment
+const isVercel = process.env.VERCEL === '1';
+
 export interface User {
   id: string;
   name: string;
@@ -90,13 +93,25 @@ class DatabaseManager {
 
   async initialize(): Promise<void> {
     try {
-      const dbPath = path.join(process.cwd(), 'wedding_album.db');
-      console.log('Database path:', dbPath);
-      
-      this.db = await open({
-        filename: dbPath,
-        driver: sqlite3.Database
-      });
+      // In Vercel, we'll use a remote database or fallback to in-memory
+      if (isVercel) {
+        console.log('Running in Vercel environment - using in-memory database');
+        // For now, use in-memory database for Vercel
+        // TODO: Replace with remote database connection
+        this.db = await open({
+          filename: ':memory:',
+          driver: sqlite3.Database
+        });
+      } else {
+        // Local development - use file-based database
+        const dbPath = path.join(process.cwd(), 'wedding_album.db');
+        console.log('Database path:', dbPath);
+        
+        this.db = await open({
+          filename: dbPath,
+          driver: sqlite3.Database
+        });
+      }
 
       await this.createTables();
       console.log('Database initialized successfully');
