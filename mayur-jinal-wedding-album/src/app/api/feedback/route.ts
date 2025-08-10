@@ -55,19 +55,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Verify CAPTCHA - be more lenient for Vercel deployment
-    if (!captchaToken) {
-      return NextResponse.json(
-        { error: 'CAPTCHA verification required' },
-        { status: 400 }
-      );
-    }
+    // For Vercel deployment, skip CAPTCHA verification entirely
+    if (!isVercel) {
+      // Only verify CAPTCHA on local development
+      if (!captchaToken) {
+        return NextResponse.json(
+          { error: 'CAPTCHA verification required' },
+          { status: 400 }
+        );
+      }
 
-    // For Vercel deployment, accept any non-empty captcha token
-    // For production with proper reCAPTCHA setup, verify with Google
-    if (process.env.NODE_ENV === 'production' && !isVercel) {
-      // Only verify with Google reCAPTCHA if we have the secret key and not on Vercel
-      if (process.env.RECAPTCHA_SECRET_KEY) {
+      // For local development, verify with Google reCAPTCHA if configured
+      if (process.env.NODE_ENV === 'production' && process.env.RECAPTCHA_SECRET_KEY) {
         try {
           const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
             method: 'POST',
@@ -85,9 +84,11 @@ export async function POST(request: NextRequest) {
             );
           }
         } catch (error) {
-          console.log('reCAPTCHA verification failed, proceeding anyway for Vercel deployment');
+          console.log('reCAPTCHA verification failed, proceeding anyway');
         }
       }
+    } else {
+      console.log('Skipping CAPTCHA verification for Vercel deployment');
     }
 
     // If we have a user, submit feedback with user ID, otherwise submit anonymously

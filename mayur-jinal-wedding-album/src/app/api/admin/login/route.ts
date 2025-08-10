@@ -29,22 +29,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Verify CAPTCHA (in production, verify with Google reCAPTCHA)
-    if (!captchaToken) {
-      return NextResponse.json(
-        { error: 'CAPTCHA verification required' },
-        { status: 400 }
-      );
-    }
-
-    // For Vercel deployment, be more lenient with CAPTCHA verification
+    // For Vercel deployment, skip CAPTCHA verification entirely
     const isVercel = process.env.VERCEL === '1';
     
-    // For Vercel deployment, accept any non-empty captcha token
-    // For production with proper reCAPTCHA setup, verify with Google
-    if (process.env.NODE_ENV === 'production' && !isVercel) {
-      // Only verify with Google reCAPTCHA if we have the secret key and not on Vercel
-      if (process.env.RECAPTCHA_SECRET_KEY) {
+    if (!isVercel) {
+      // Only verify CAPTCHA on local development
+      if (!captchaToken) {
+        return NextResponse.json(
+          { error: 'CAPTCHA verification required' },
+          { status: 400 }
+        );
+      }
+
+      // For local development, verify with Google reCAPTCHA if configured
+      if (process.env.NODE_ENV === 'production' && process.env.RECAPTCHA_SECRET_KEY) {
         try {
           const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
             method: 'POST',
@@ -62,9 +60,11 @@ export async function POST(request: NextRequest) {
             );
           }
         } catch (error) {
-          console.log('reCAPTCHA verification failed, proceeding anyway for Vercel deployment');
+          console.log('reCAPTCHA verification failed, proceeding anyway');
         }
       }
+    } else {
+      console.log('Skipping CAPTCHA verification for Vercel deployment');
     }
 
     const admin = await dbManager.authenticateAdmin(username, password, ipAddress, userAgent);
