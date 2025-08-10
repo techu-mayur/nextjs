@@ -113,7 +113,10 @@ class DatabaseManager {
         });
       }
 
+      console.log('Creating database tables...');
       await this.createTables();
+      console.log('Creating default admin user...');
+      await this.createDefaultAdmin();
       console.log('Database initialized successfully');
     } catch (error) {
       console.error('Database initialization error:', error);
@@ -615,20 +618,29 @@ class DatabaseManager {
   async authenticateAdmin(username: string, password: string, ipAddress: string, userAgent: string): Promise<AdminUser | null> {
     if (!this.db) throw new Error('Database not initialized');
 
+    console.log('Looking for admin user:', username);
     const admin = await this.db.get(
       'SELECT * FROM admin_users WHERE username = ? AND is_active = TRUE',
       [username]
     );
 
-    if (admin && await bcrypt.compare(password, admin.password_hash)) {
-      await this.logAdminLogin(admin.id, ipAddress, userAgent, true);
-      await this.db.run(
-        'UPDATE admin_users SET last_login = ? WHERE id = ?',
-        [new Date().toISOString(), admin.id]
-      );
-      return admin;
-    } else if (admin) {
-      await this.logAdminLogin(admin.id, ipAddress, userAgent, false);
+    if (admin) {
+      console.log('Admin user found, checking password...');
+      const passwordMatch = await bcrypt.compare(password, admin.password_hash);
+      console.log('Password match:', passwordMatch);
+      
+      if (passwordMatch) {
+        await this.logAdminLogin(admin.id, ipAddress, userAgent, true);
+        await this.db.run(
+          'UPDATE admin_users SET last_login = ? WHERE id = ?',
+          [new Date().toISOString(), admin.id]
+        );
+        return admin;
+      } else {
+        await this.logAdminLogin(admin.id, ipAddress, userAgent, false);
+      }
+    } else {
+      console.log('Admin user not found');
     }
 
     return null;

@@ -16,13 +16,17 @@ async function ensureDbInitialized() {
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('Admin login request received');
     await ensureDbInitialized();
 
     const { username, password, captchaToken } = await request.json();
+    console.log('Request data:', { username, password: password ? '[REDACTED]' : 'MISSING', captchaToken: captchaToken ? 'PRESENT' : 'MISSING' });
+    
     const ipAddress = getClientIp(request);
     const userAgent = request.headers.get('user-agent') || 'unknown';
 
     if (!username || !password) {
+      console.log('Missing username or password');
       return NextResponse.json(
         { error: 'Username and password are required' },
         { status: 400 }
@@ -67,7 +71,9 @@ export async function POST(request: NextRequest) {
       console.log('Skipping CAPTCHA verification for Vercel deployment');
     }
 
+    console.log('Attempting to authenticate admin user:', username);
     const admin = await dbManager.authenticateAdmin(username, password, ipAddress, userAgent);
+    console.log('Authentication result:', admin ? 'SUCCESS' : 'FAILED');
 
     if (admin) {
       const adminToken = jwt.sign(
