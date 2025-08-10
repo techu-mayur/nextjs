@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
           if (fs.existsSync(fullPath)) {
             try {
               const posterName = `${path.parse(item.filename).name}-poster.jpg`;
-              const posterFsPath = path.join(thumbsDir, posterName);
+              
               
               // Use imported ffmpeg
               await new Promise<void>((resolve, reject) => {

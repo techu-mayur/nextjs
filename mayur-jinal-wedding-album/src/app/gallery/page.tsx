@@ -157,7 +157,7 @@ export default function Gallery() {
         const { folders: apiFolders, files, parent: normalized } = response.data;
         setFolders(apiFolders);
         // Ensure unique files by filepath
-        const uniqueFiles: MediaItem[] = Array.from(new Map(files.map((f: MediaItem) => [f.filepath, f])).values());
+        const uniqueFiles = Array.from(new Map(files.map((f: any) => [f.filepath, f])).values()) as MediaItem[];
         setMediaItems(uniqueFiles);
         setCurrentPath(normalized);
         setVisibleFolderCount(DEFAULT_PAGE_SIZE);

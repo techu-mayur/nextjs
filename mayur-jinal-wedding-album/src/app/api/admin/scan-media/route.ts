@@ -157,7 +157,7 @@ export async function POST(request: NextRequest) {
               try {
                 // Try to generate poster via ffmpeg if path was configured successfully
                 const posterName = `${path.parse(item).name}-poster.jpg`;
-                const posterFsPath = path.join(thumbsDir, posterName);
+                
                 await new Promise<void>((resolve, reject) => {
                   try {
                     ffmpeg(fullPath)

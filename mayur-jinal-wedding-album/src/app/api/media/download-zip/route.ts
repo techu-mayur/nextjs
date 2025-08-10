@@ -41,8 +41,8 @@ export async function POST(request: NextRequest) {
     await archive.finalize();
 
     // Wait for the write stream to finish
-    await new Promise((resolve, reject) => {
-      output.on('close', resolve);
+    await new Promise<void>((resolve, reject) => {
+      output.on('close', () => resolve());
       output.on('error', reject);
     });
 

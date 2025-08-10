@@ -91,7 +91,7 @@ export default function AdminDashboard() {
       if (analyticsRes.data.success) setAnalytics(analyticsRes.data.items);
       if (feedbackRes.data.success) setFeedback(feedbackRes.data.items);
       if (mediaRes.data.success) setMedia(mediaRes.data.items);
-    } catch (e) {
+    } catch {
       // swallow
     }
   };
