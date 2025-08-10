@@ -144,7 +144,7 @@ export async function GET(request: NextRequest) {
         console.log('No media found in database, using fallback data');
         allMedia = fallbackMediaData.files.filter(item => 
           item.filepath.startsWith(normalizedParent)
-        );
+        ) as MediaItem[];
         console.log('Fallback media found:', allMedia.length);
       }
       
@@ -204,7 +204,7 @@ export async function GET(request: NextRequest) {
     // If no items found, use fallback data
     if (items.length === 0) {
       console.log('No items found in pagination, using fallback data');
-      const fallbackItems = fallbackMediaData.files;
+      const fallbackItems = fallbackMediaData.files as MediaItem[];
       return NextResponse.json({ 
         success: true, 
         media: fallbackItems, 
