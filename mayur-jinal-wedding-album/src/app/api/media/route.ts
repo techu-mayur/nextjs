@@ -116,6 +116,7 @@ export async function GET(request: NextRequest) {
       const categories = await dbManager.getCategories();
       // If no categories in database, return default ones
       if (categories.length === 0) {
+        console.log('No categories found in database, using fallback categories');
         return NextResponse.json({ 
           success: true, 
           categories: ['videos', 'photos', 'FINAL PHOTOS'] 
@@ -132,16 +133,19 @@ export async function GET(request: NextRequest) {
       const parent = searchParams.get('parent') || root;
       const normalizedParent = parent.startsWith('/') ? parent : `/${parent}`;
       
-      // Check if we're in Vercel environment and database is empty
-      const isVercel = process.env.VERCEL === '1';
-      let allMedia = await dbManager.getMediaByPathPrefix(normalizedParent);
+      console.log('Exploring path:', normalizedParent);
       
-      // If no media found and we're on Vercel, use fallback data
-      if (allMedia.length === 0 && isVercel) {
-        console.log('Using fallback media data for Vercel deployment');
+      // Always try to get media from database first
+      let allMedia = await dbManager.getMediaByPathPrefix(normalizedParent);
+      console.log('Media found in database:', allMedia.length);
+      
+      // If no media found, use fallback data
+      if (allMedia.length === 0) {
+        console.log('No media found in database, using fallback data');
         allMedia = fallbackMediaData.files.filter(item => 
           item.filepath.startsWith(normalizedParent)
         );
+        console.log('Fallback media found:', allMedia.length);
       }
       
       // Build unique immediate subfolders and files directly under parent
@@ -167,6 +171,7 @@ export async function GET(request: NextRequest) {
           files.push(item);
         }
       }
+      
       // Count items inside each folder and choose a thumbnail
       for (const folder of folders) {
         const inside = allMedia.filter(m => m.filepath.startsWith(folder.path + '/'));
@@ -179,7 +184,15 @@ export async function GET(request: NextRequest) {
       
       // Ensure files are unique by filepath
       const uniqueFiles = Array.from(new Map(files.map(f => [f.filepath, f])).values());
-      return NextResponse.json({ success: true, parent: normalizedParent, folders, files: uniqueFiles });
+      
+      console.log('Returning folders:', folders.length, 'files:', uniqueFiles.length);
+      
+      return NextResponse.json({ 
+        success: true, 
+        parent: normalizedParent, 
+        folders, 
+        files: uniqueFiles 
+      });
     }
     
     const page = parseInt(searchParams.get('page') || '1', 10);
@@ -188,9 +201,9 @@ export async function GET(request: NextRequest) {
 
     const { items, total } = await dbManager.getMediaPaged(Math.max(1, page), Math.min(100, Math.max(1, pageSize)), category);
     
-    // If no items found and we're on Vercel, use fallback data
-    if (items.length === 0 && process.env.VERCEL === '1') {
-      console.log('Using fallback media data for pagination');
+    // If no items found, use fallback data
+    if (items.length === 0) {
+      console.log('No items found in pagination, using fallback data');
       const fallbackItems = fallbackMediaData.files;
       return NextResponse.json({ 
         success: true, 
