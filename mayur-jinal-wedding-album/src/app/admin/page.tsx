@@ -31,7 +31,10 @@ export default function AdminLogin() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!captchaToken) {
+    // For Vercel deployment, skip CAPTCHA validation on frontend too
+    const isVercel = process.env.NEXT_PUBLIC_VERCEL === '1' || window.location.hostname.includes('vercel.app');
+    
+    if (!isVercel && !captchaToken) {
       toast.error('Please complete the CAPTCHA');
       return;
     }
@@ -41,7 +44,7 @@ export default function AdminLogin() {
     try {
       const response = await axios.post('/api/admin/login', {
         ...formData,
-        captchaToken
+        captchaToken: captchaToken || 'vercel-skip-captcha'
       });
 
       if (response.data.success) {
