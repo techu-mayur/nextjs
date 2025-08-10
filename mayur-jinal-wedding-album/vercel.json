@@ -6,7 +6,9 @@
   },
   "build": {
     "env": {
-      "NEXT_PUBLIC_MEDIA_BASE_URL": "https://projects.techumayur.in/mayur-jinal-wedding-album"
+      "NEXT_PUBLIC_MEDIA_BASE_URL": "https://projects.techumayur.in/mayur-jinal-wedding-album",
+      "NEXT_PUBLIC_RECAPTCHA_SITE_KEY": "6LeuS6ErAAAAAPRQ7cgd6vzwKCBfOqxYx9X5yKR1",
+      "RECAPTCHA_SECRET_KEY": "6LeuS6ErAAAAACkA4G_4JenHW8CPCvUr3GeCI0yJ"
     }
   }
 }

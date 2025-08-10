@@ -262,10 +262,7 @@ export default function Gallery() {
   const handleFeedbackSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // For Vercel deployment, skip CAPTCHA validation on frontend too
-    const isVercel = process.env.NEXT_PUBLIC_VERCEL === '1' || window.location.hostname.includes('vercel.app');
-    
-    if (!isVercel && !captchaToken) {
+    if (!captchaToken) {
       toast.error('Please complete the CAPTCHA');
       return;
     }
@@ -274,7 +271,7 @@ export default function Gallery() {
       const sessionToken = localStorage.getItem('sessionToken');
       await axios.post('/api/feedback', {
         ...feedbackData,
-        captchaToken: captchaToken || 'vercel-skip-captcha',
+        captchaToken,
         sessionToken
       });
       
@@ -674,7 +671,7 @@ export default function Gallery() {
                   </div>
                   <div className="mb-4">
                     <ReCAPTCHA
-                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'}
+                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LeuS6ErAAAAAPRQ7cgd6vzwKCBfOqxYx9X5yKR1'}
                       onChange={(token: string | null) => setCaptchaToken(token || '')}
                     />
                   </div>

@@ -58,40 +58,45 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // For Vercel deployment, skip CAPTCHA verification entirely
-    if (!isVercel) {
-      // Only verify CAPTCHA on local development
-      if (!captchaToken) {
+    // Verify CAPTCHA with proper reCAPTCHA integration
+    if (!captchaToken) {
+      console.log('No CAPTCHA token provided');
+      return NextResponse.json(
+        { error: 'CAPTCHA verification required' },
+        { status: 400 }
+      );
+    }
+
+    // Verify with Google reCAPTCHA if secret key is available
+    if (process.env.RECAPTCHA_SECRET_KEY) {
+      console.log('Verifying CAPTCHA with Google reCAPTCHA');
+      try {
+        const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captchaToken}`,
+        });
+
+        const recaptchaData = await recaptchaResponse.json();
+        console.log('reCAPTCHA verification result:', recaptchaData.success);
+        
+        if (!recaptchaData.success) {
+          return NextResponse.json(
+            { error: 'CAPTCHA verification failed' },
+            { status: 400 }
+          );
+        }
+      } catch (error) {
+        console.log('reCAPTCHA verification error:', error);
         return NextResponse.json(
-          { error: 'CAPTCHA verification required' },
+          { error: 'CAPTCHA verification failed' },
           { status: 400 }
         );
       }
-
-      // For local development, verify with Google reCAPTCHA if configured
-      if (process.env.NODE_ENV === 'production' && process.env.RECAPTCHA_SECRET_KEY) {
-        try {
-          const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captchaToken}`,
-          });
-
-          const recaptchaData = await recaptchaResponse.json();
-          if (!recaptchaData.success) {
-            return NextResponse.json(
-              { error: 'CAPTCHA verification failed' },
-              { status: 400 }
-            );
-          }
-        } catch (error) {
-          console.log('reCAPTCHA verification failed, proceeding anyway');
-        }
-      }
     } else {
-      console.log('Skipping CAPTCHA verification for Vercel deployment');
+      console.log('No reCAPTCHA secret key configured, skipping verification');
     }
 
     // If we have a user, submit feedback with user ID, otherwise submit anonymously
