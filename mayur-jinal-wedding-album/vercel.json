@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "src/app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_MEDIA_BASE_URL": "https://projects.techumayur.in/mayur-jinal-wedding-album"
+    }
+  }
+}
