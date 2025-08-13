@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import dbManager from '@/lib/database';
 import { getClientIp } from '@/app/api/_utils/ip';
+import type { MediaItem } from '@/lib/database';
 
 let dbInitialized = false;
 
@@ -25,7 +26,7 @@ const fallbackMediaData = {
     {
       id: "1",
       filename: "00-MAYUR  & JINAL  HIGHLIGHT- .mp4",
-      filepath: "/uploads/00-MAYUR  & JINAL  HIGHLIGHT- .mp4",
+      filepath: "/00-MAYUR  & JINAL  HIGHLIGHT- .mp4",
       filetype: "video" as "video",
       filesize: 405000000,
       upload_date: new Date().toISOString(),
@@ -41,7 +42,7 @@ const fallbackMediaData = {
     {
       id: "2",
       filename: "01-MAYUR & JINAL MANDAP REEL-.mp4",
-      filepath: "/uploads/01-MAYUR & JINAL MANDAP REEL-.mp4",
+      filepath: "/01-MAYUR & JINAL MANDAP REEL-.mp4",
       filetype: "video" as "video",
       filesize: 60000000,
       upload_date: new Date().toISOString(),
@@ -57,7 +58,7 @@ const fallbackMediaData = {
     {
       id: "3",
       filename: "02-JINAL MAMERA REEL-.mp4",
-      filepath: "/uploads/02-JINAL MAMERA REEL-.mp4",
+      filepath: "/02-JINAL MAMERA REEL-.mp4",
       filetype: "video" as "video",
       filesize: 55000000,
       upload_date: new Date().toISOString(),
@@ -73,7 +74,7 @@ const fallbackMediaData = {
     {
       id: "4",
       filename: "03-.mp4 MAYUR & JINAL BARAT REEL-mp-4.mp4",
-      filepath: "/uploads/03-.mp4 MAYUR & JINAL BARAT REEL-mp-4.mp4",
+      filepath: "/03-.mp4 MAYUR & JINAL BARAT REEL-mp-4.mp4",
       filetype: "video" as "video",
       filesize: 60000000,
       upload_date: new Date().toISOString(),
@@ -89,7 +90,7 @@ const fallbackMediaData = {
     {
       id: "5",
       filename: "04-MAYUR & JINAL WEDDING REEL.mp4",
-      filepath: "/uploads/04-MAYUR & JINAL WEDDING REEL.mp4",
+      filepath: "/04-MAYUR & JINAL WEDDING REEL.mp4",
       filetype: "video" as "video",
       filesize: 77000000,
       upload_date: new Date().toISOString(),
