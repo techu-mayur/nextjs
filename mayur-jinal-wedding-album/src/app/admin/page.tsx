@@ -113,6 +113,7 @@ export default function AdminLogin() {
                       <ReCAPTCHA
                         sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LeuS6ErAAAAAPRQ7cgd6vzwKCBfOqxYx9X5yKR1'}
                         onChange={handleCaptchaChange}
+                        
                       />
                     </div>
 
