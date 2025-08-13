@@ -17,7 +17,7 @@ const fallbackFiles: MediaItem[] = [
   {
     id: "1",
     filename: "00-MAYUR  & JINAL  HIGHLIGHT- .mp4",
-    filepath: "/00-MAYUR  & JINAL  HIGHLIGHT- .mp4",
+    filepath: "https://projects.techumayur.in/mayur-jinal-wedding-album/uploads/00-MAYUR%20%20%26%20JINAL%20%20HIGHLIGHT-%20.mp4",
     filetype: "video",
     filesize: 405000000,
     upload_date: new Date(),
@@ -27,13 +27,13 @@ const fallbackFiles: MediaItem[] = [
     view_count: 0,
     thumb_path: null,
     preview_path: null,
-    poster_path: "/uploads/__thumbs/00-MAYUR  & JINAL  HIGHLIGHT- -poster.jpg",
+    poster_path: "https://projects.techumayur.in/mayur-jinal-wedding-album/uploads/__thumbs/00-MAYUR%20%20%26%20JINAL%20%20HIGHLIGHT-%20-poster.jpg",
     duration: null
   },
   {
     id: "2",
     filename: "01-MAYUR & JINAL MANDAP REEL-.mp4",
-    filepath: "/01-MAYUR & JINAL MANDAP REEL-.mp4",
+    filepath: "https://projects.techumayur.in/mayur-jinal-wedding-album/uploads/01-MAYUR%20%26%20JINAL%20MANDAP%20REEL-.mp4",
     filetype: "video",
     filesize: 60000000,
     upload_date: new Date(),
@@ -43,13 +43,13 @@ const fallbackFiles: MediaItem[] = [
     view_count: 0,
     thumb_path: null,
     preview_path: null,
-    poster_path: "/uploads/__thumbs/01-MAYUR & JINAL MANDAP REEL--poster.jpg",
+    poster_path: "https://projects.techumayur.in/mayur-jinal-wedding-album/uploads/__thumbs/01-MAYUR%20%26%20JINAL%20MANDAP%20REEL--poster.jpg",
     duration: null
   },
   {
     id: "3",
     filename: "02-JINAL MAMERA REEL-.mp4",
-    filepath: "/02-JINAL MAMERA REEL-.mp4",
+    filepath: "https://projects.techumayur.in/mayur-jinal-wedding-album/uploads/02-JINAL%20MAMERA%20REEL-.mp4",
     filetype: "video",
     filesize: 55000000,
     upload_date: new Date(),
@@ -59,13 +59,13 @@ const fallbackFiles: MediaItem[] = [
     view_count: 0,
     thumb_path: null,
     preview_path: null,
-    poster_path: "/uploads/__thumbs/02-JINAL MAMERA REEL--poster.jpg",
+    poster_path: "https://projects.techumayur.in/mayur-jinal-wedding-album/uploads/__thumbs/02-JINAL%20MAMERA%20REEL--poster.jpg",
     duration: null
   },
   {
     id: "4",
     filename: "03-.mp4 MAYUR & JINAL BARAT REEL-mp-4.mp4",
-    filepath: "/03-.mp4 MAYUR & JINAL BARAT REEL-mp-4.mp4",
+    filepath: "https://projects.techumayur.in/mayur-jinal-wedding-album/uploads/03-.mp4%20MAYUR%20%26%20JINAL%20BARAT%20REEL-mp-4.mp4",
     filetype: "video",
     filesize: 60000000,
     upload_date: new Date(),
@@ -75,13 +75,13 @@ const fallbackFiles: MediaItem[] = [
     view_count: 0,
     thumb_path: null,
     preview_path: null,
-    poster_path: "/uploads/__thumbs/03-.mp4 MAYUR & JINAL BARAT REEL-mp-4-poster.jpg",
+    poster_path: "https://projects.techumayur.in/mayur-jinal-wedding-album/uploads/__thumbs/03-.mp4%20MAYUR%20%26%20JINAL%20BARAT%20REEL-mp-4-poster.jpg",
     duration: null
   },
   {
     id: "5",
     filename: "04-MAYUR & JINAL WEDDING REEL.mp4",
-    filepath: "/04-MAYUR & JINAL WEDDING REEL.mp4",
+    filepath: "https://projects.techumayur.in/mayur-jinal-wedding-album/uploads/04-MAYUR%20%26%20JINAL%20WEDDING%20REEL.mp4",
     filetype: "video",
     filesize: 77000000,
     upload_date: new Date(),
@@ -91,7 +91,7 @@ const fallbackFiles: MediaItem[] = [
     view_count: 0,
     thumb_path: null,
     preview_path: null,
-    poster_path: "/uploads/__thumbs/04-MAYUR & JINAL WEDDING REEL-poster.jpg",
+    poster_path: "https://projects.techumayur.in/mayur-jinal-wedding-album/uploads/__thumbs/04-MAYUR%20%26%20JINAL%20WEDDING%20REEL-poster.jpg",
     duration: null
   }
 ];
