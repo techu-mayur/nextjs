@@ -13,6 +13,89 @@ async function ensureDbInitialized() {
 }
 
 // Fallback media data for when database is empty (Vercel in-memory)
+const fallbackFiles: MediaItem[] = [
+  {
+    id: "1",
+    filename: "00-MAYUR  & JINAL  HIGHLIGHT- .mp4",
+    filepath: "/00-MAYUR  & JINAL  HIGHLIGHT- .mp4",
+    filetype: "video",
+    filesize: 405000000,
+    upload_date: new Date(),
+    face_detected: false,
+    category: "videos",
+    download_count: 0,
+    view_count: 0,
+    thumb_path: null,
+    preview_path: null,
+    poster_path: null,
+    duration: null
+  },
+  {
+    id: "2",
+    filename: "01-MAYUR & JINAL MANDAP REEL-.mp4",
+    filepath: "/01-MAYUR & JINAL MANDAP REEL-.mp4",
+    filetype: "video",
+    filesize: 60000000,
+    upload_date: new Date(),
+    face_detected: false,
+    category: "videos",
+    download_count: 0,
+    view_count: 0,
+    thumb_path: null,
+    preview_path: null,
+    poster_path: null,
+    duration: null
+  },
+  {
+    id: "3",
+    filename: "02-JINAL MAMERA REEL-.mp4",
+    filepath: "/02-JINAL MAMERA REEL-.mp4",
+    filetype: "video",
+    filesize: 55000000,
+    upload_date: new Date(),
+    face_detected: false,
+    category: "videos",
+    download_count: 0,
+    view_count: 0,
+    thumb_path: null,
+    preview_path: null,
+    poster_path: null,
+    duration: null
+  },
+  {
+    id: "4",
+    filename: "03-.mp4 MAYUR & JINAL BARAT REEL-mp-4.mp4",
+    filepath: "/03-.mp4 MAYUR & JINAL BARAT REEL-mp-4.mp4",
+    filetype: "video",
+    filesize: 60000000,
+    upload_date: new Date(),
+    face_detected: false,
+    category: "videos",
+    download_count: 0,
+    view_count: 0,
+    thumb_path: null,
+    preview_path: null,
+    poster_path: null,
+    duration: null
+  },
+  {
+    id: "5",
+    filename: "04-MAYUR & JINAL WEDDING REEL.mp4",
+    filepath: "/04-MAYUR & JINAL WEDDING REEL.mp4",
+    filetype: "video",
+    filesize: 77000000,
+    upload_date: new Date(),
+    face_detected: false,
+    category: "videos",
+    download_count: 0,
+    view_count: 0,
+    thumb_path: null,
+    preview_path: null,
+    poster_path: null,
+    duration: null
+  }
+];
+
 const fallbackMediaData = {
   folders: [
     {
@@ -22,88 +105,7 @@ const fallbackMediaData = {
       thumbnail: null
     }
   ],
-  files: [
-    {
-      id: "1",
-      filename: "00-MAYUR  & JINAL  HIGHLIGHT- .mp4",
-      filepath: "/00-MAYUR  & JINAL  HIGHLIGHT- .mp4",
-      filetype: "video" as "video",
-      filesize: 405000000,
-      upload_date: new Date().toISOString(),
-      face_detected: false,
-      category: "videos",
-      download_count: 0,
-      view_count: 0,
-      thumb_path: null,
-      preview_path: null,
-      poster_path: null,
-      duration: null
-    },
-    {
-      id: "2",
-      filename: "01-MAYUR & JINAL MANDAP REEL-.mp4",
-      filepath: "/01-MAYUR & JINAL MANDAP REEL-.mp4",
-      filetype: "video" as "video",
-      filesize: 60000000,
-      upload_date: new Date().toISOString(),
-      face_detected: false,
-      category: "videos",
-      download_count: 0,
-      view_count: 0,
-      thumb_path: null,
-      preview_path: null,
-      poster_path: null,
-      duration: null
-    },
-    {
-      id: "3",
-      filename: "02-JINAL MAMERA REEL-.mp4",
-      filepath: "/02-JINAL MAMERA REEL-.mp4",
-      filetype: "video" as "video",
-      filesize: 55000000,
-      upload_date: new Date().toISOString(),
-      face_detected: false,
-      category: "videos",
-      download_count: 0,
-      view_count: 0,
-      thumb_path: null,
-      preview_path: null,
-      poster_path: null,
-      duration: null
-    },
-    {
-      id: "4",
-      filename: "03-.mp4 MAYUR & JINAL BARAT REEL-mp-4.mp4",
-      filepath: "/03-.mp4 MAYUR & JINAL BARAT REEL-mp-4.mp4",
-      filetype: "video" as "video",
-      filesize: 60000000,
-      upload_date: new Date().toISOString(),
-      face_detected: false,
-      category: "videos",
-      download_count: 0,
-      view_count: 0,
-      thumb_path: null,
-      preview_path: null,
-      poster_path: null,
-      duration: null
-    },
-    {
-      id: "5",
-      filename: "04-MAYUR & JINAL WEDDING REEL.mp4",
-      filepath: "/04-MAYUR & JINAL WEDDING REEL.mp4",
-      filetype: "video" as "video",
-      filesize: 77000000,
-      upload_date: new Date().toISOString(),
-      face_detected: false,
-      category: "videos",
-      download_count: 0,
-      view_count: 0,
-      thumb_path: null,
-      preview_path: null,
-      poster_path: null,
-      duration: null
-    }
-  ]
+  files: fallbackFiles
 };
 
 export async function GET(request: NextRequest) {
@@ -144,7 +146,7 @@ export async function GET(request: NextRequest) {
       if (allMedia.length === 0) {
         console.log('No media found in database, using fallback data');
         // Always return all fallback files for /uploads
-        allMedia = fallbackMediaData.files as MediaItem[];
+        allMedia = fallbackMediaData.files;
         console.log('Fallback media found:', allMedia.length);
       }
       
@@ -204,7 +206,7 @@ export async function GET(request: NextRequest) {
     // If no items found, use fallback data
     if (items.length === 0) {
       console.log('No items found in pagination, using fallback data');
-      const fallbackItems = fallbackMediaData.files as MediaItem[];
+      const fallbackItems = fallbackMediaData.files;
       return NextResponse.json({ 
         success: true, 
         media: fallbackItems, 
