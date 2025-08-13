@@ -142,9 +142,8 @@ export async function GET(request: NextRequest) {
       // If no media found, use fallback data
       if (allMedia.length === 0) {
         console.log('No media found in database, using fallback data');
-        allMedia = fallbackMediaData.files.filter(item => 
-          item.filepath.startsWith(normalizedParent)
-        ) as MediaItem[];
+        // Always return all fallback files for /uploads
+        allMedia = fallbackMediaData.files as MediaItem[];
         console.log('Fallback media found:', allMedia.length);
       }
       
