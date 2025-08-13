@@ -27,7 +27,7 @@ const fallbackFiles: MediaItem[] = [
     view_count: 0,
     thumb_path: null,
     preview_path: null,
-    poster_path: null,
+    poster_path: "/uploads/__thumbs/00-MAYUR  & JINAL  HIGHLIGHT- -poster.jpg",
     duration: null
   },
   {
@@ -43,7 +43,7 @@ const fallbackFiles: MediaItem[] = [
     view_count: 0,
     thumb_path: null,
     preview_path: null,
-    poster_path: null,
+    poster_path: "/uploads/__thumbs/01-MAYUR & JINAL MANDAP REEL--poster.jpg",
     duration: null
   },
   {
@@ -59,7 +59,7 @@ const fallbackFiles: MediaItem[] = [
     view_count: 0,
     thumb_path: null,
     preview_path: null,
-    poster_path: null,
+    poster_path: "/uploads/__thumbs/02-JINAL MAMERA REEL--poster.jpg",
     duration: null
   },
   {
@@ -75,7 +75,7 @@ const fallbackFiles: MediaItem[] = [
     view_count: 0,
     thumb_path: null,
     preview_path: null,
-    poster_path: null,
+    poster_path: "/uploads/__thumbs/03-.mp4 MAYUR & JINAL BARAT REEL-mp-4-poster.jpg",
     duration: null
   },
   {
@@ -91,7 +91,7 @@ const fallbackFiles: MediaItem[] = [
     view_count: 0,
     thumb_path: null,
     preview_path: null,
-    poster_path: null,
+    poster_path: "/uploads/__thumbs/04-MAYUR & JINAL WEDDING REEL-poster.jpg",
     duration: null
   }
 ];

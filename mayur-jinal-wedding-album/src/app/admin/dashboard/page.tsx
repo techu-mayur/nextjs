@@ -34,6 +34,9 @@ export default function AdminDashboard() {
   const [analytics, setAnalytics] = useState<any[]>([]);
   const [feedback, setFeedback] = useState<any[]>([]);
   const [media, setMedia] = useState<any[]>([]);
+  const [thumbJobId, setThumbJobId] = useState<string | null>(null);
+  const [thumbProgress, setThumbProgress] = useState<{processed:number; total:number; updated:number; done:boolean; message:string}>({processed:0,total:0,updated:0,done:false,message:''});
+  const [showThumbModal, setShowThumbModal] = useState(false);
 
   const PAGE_SIZE = 12;
   const [userPage, setUserPage] = useState(1);
@@ -54,6 +57,28 @@ export default function AdminDashboard() {
     loadDashboardStats();
     loadAdminData();
   }, [router]);
+
+  useEffect(()=>{
+    let interval: any;
+    if (thumbJobId) {
+      interval = setInterval(async ()=>{
+        try {
+          const res = await axios.get(`/api/admin/regenerate-thumbnails/status?jobId=${thumbJobId}`);
+          if (res.data?.success && res.data.job) {
+            const { processed, total, updated, done, message } = res.data.job;
+            setThumbProgress({ processed, total, updated, done, message: message || '' });
+            if (done) {
+              clearInterval(interval);
+              toast.success(`Thumbnails updated: ${updated}`);
+              setTimeout(()=> setShowThumbModal(false), 800);
+              loadAdminData();
+            }
+          }
+        } catch {}
+      }, 1200);
+    }
+    return ()=> interval && clearInterval(interval);
+  }, [thumbJobId]);
 
   const loadDashboardStats = async () => {
     try {
@@ -129,6 +154,24 @@ export default function AdminDashboard() {
       }
     } catch (error: any) {
       toast.error(error.response?.data?.error || 'Failed to regenerate thumbnails');
+    }
+  };
+
+  const handleRegenerateThumbnailsProgress = async () => {
+    try {
+      setShowThumbModal(true);
+      setThumbProgress({ processed:0, total:0, updated:0, done:false, message:'' });
+      const res = await axios.post('/api/admin/regenerate-thumbnails/start');
+      if (res.data?.success && res.data.jobId) {
+        setThumbJobId(res.data.jobId);
+        toast.success('Thumbnail regeneration started');
+      } else {
+        toast.error('Failed to start regeneration');
+        setShowThumbModal(false);
+      }
+    } catch (e:any) {
+      toast.error(e?.response?.data?.error || 'Failed to start regeneration');
+      setShowThumbModal(false);
     }
   };
 
@@ -254,6 +297,10 @@ export default function AdminDashboard() {
                     <button className="btn btn-success" onClick={handleRegenerateThumbnails}>
                       <i className="bi bi-image me-2"></i>
                       Regenerate Thumbnails
+                    </button>
+                    <button className="btn btn-outline-success" onClick={handleRegenerateThumbnailsProgress}>
+                      <i className="bi bi-hourglass-split me-2"></i>
+                      Regenerate with Progress
                     </button>
                     <button className="btn btn-danger" onClick={handleCleanupDatabase}>
                       <i className="bi bi-trash me-2"></i>
@@ -574,6 +621,38 @@ export default function AdminDashboard() {
           </div>
         </main>
       </div>
+      {showThumbModal && (
+        <div className="modal d-block" tabIndex={-1}>
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Regenerating Thumbnails</h5>
+                <button type="button" className="btn-close" onClick={()=>setShowThumbModal(false)}></button>
+              </div>
+              <div className="modal-body">
+                <p className="mb-2 text-muted">Please keep this page open. This may take a while for large libraries.</p>
+                <div className="progress" role="progressbar" aria-valuemin={0} aria-valuemax={thumbProgress.total||1} aria-valuenow={thumbProgress.processed}>
+                  <div className="progress-bar" style={{width: `${thumbProgress.total? Math.min(100, Math.round(thumbProgress.processed*100/Math.max(1, thumbProgress.total))) : 0}%`}}>
+                    {thumbProgress.total ? `${thumbProgress.processed}/${thumbProgress.total}` : 'Preparing...'}
+                  </div>
+                </div>
+                <div className="d-flex justify-content-between mt-2 small">
+                  <span>Updated: {thumbProgress.updated}</span>
+                  <span>{thumbProgress.done ? 'Done' : 'In progress...'}</span>
+                </div>
+                {thumbProgress.message && (
+                  <div className="mt-2 p-2 bg-light rounded">
+                    <small className="text-muted">{thumbProgress.message}</small>
+                  </div>
+                )}
+              </div>
+              <div className="modal-footer">
+                <button className="btn btn-secondary" onClick={()=>setShowThumbModal(false)} disabled={!thumbProgress.done}>Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
